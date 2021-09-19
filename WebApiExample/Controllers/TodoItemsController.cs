@@ -10,7 +10,7 @@ namespace WebApiExample.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TodoItemsController :ControllerBase
+    public class TodoItemsController : ControllerBase
     {
         private readonly TodoContext _context;
 
@@ -42,7 +42,7 @@ namespace WebApiExample.Controllers
             return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
         }
 
-       
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodoItem(long id)
@@ -56,6 +56,18 @@ namespace WebApiExample.Controllers
             _context.TodoItems.Remove(todoItem);
             await _context.SaveChangesAsync();
 
+            return NoContent();
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+        {
+            if (id != todoItem.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(todoItem).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
             return NoContent();
         }
     }

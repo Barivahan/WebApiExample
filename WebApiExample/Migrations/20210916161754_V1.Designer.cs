@@ -9,8 +9,8 @@ using WebApiExample;
 namespace WebApiExample.Migrations
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20210916125429_v1")]
-    partial class v1
+    [Migration("20210916161754_V1")]
+    partial class V1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -15,7 +15,7 @@ namespace WebApiExample
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectsV13;Database=TestWebApi;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-UN8K0C5\\SQLEXPRESS;Database=TestWebApi;Trusted_Connection=True;");
         }
     }
 
