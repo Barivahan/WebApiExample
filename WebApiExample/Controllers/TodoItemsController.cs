@@ -32,6 +32,18 @@ namespace WebApiExample.Controllers
             return todoItem;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetAllTodoItems()
+        {
+            var allitems = await _context.TodoItems;
+            if (allitems == null)
+            {
+                return NotFound();
+            }
+
+            return  allitems;
+        }
+
         [HttpPost]
         public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
         {
